@@ -48,6 +48,14 @@ function initialize() {
   // The custom USGSOverlay object contains the USGS image,
   // the bounds of the image, and a reference to the map.
   overlay = new USGSOverlay(bounds, srcImage, map);
+
+  var iconBase = 'http://maps.google.com/mapfiles/';
+  var markerLatLng = new google.maps.LatLng(37.410440, -122.060012);
+  var marker = new google.maps.Marker({
+    position: markerLatLng,
+    map: map,
+    icon: iconBase + 'arrow.png'
+  });
 }
 // [END region_initialization]
 
@@ -85,7 +93,7 @@ USGSOverlay.prototype.onAdd = function() {
   // Create the img element and attach it to the div.
   var img = document.createElement('img');
   img.src = this.image_;
-  img.style.opacity= 0.7;
+  img.style.opacity= 0.6;
   img.style.width = '100%';
   img.style.height = '100%';
   img.style.position = 'absolute';
